@@ -27,28 +27,71 @@ Diff = A ⊕ B ⊕ Bin B = A'Bin + A'B + BBin
 
 ## Procedure
 
+1.Use module projname(input,output) to start the Verilog programmming.
+
+2.Assign inputs and outputs using the word input and output respectively.
+
+3.Use defined keywords like wire,assign and required logic gates to represent the boolean expression.
+
+4.Use each output to represent one for difference and the other for borrow.
+
+5.End the verilog program using keyword endmodule.
 
 
-Write the detailed procedure here 
 
 
 ## Program:
 /*
 Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+
+Developed by:  Harsha vardhan
+
+RegisterNumber:212222240114
+
+
+## HALF SUBTRACTOR
+```python
+module HalfSubtractor(A,B,Diff,Borrow);
+input A,B;
+output Diff,Borrow;
+wire x;
+xor (Diff, A,B);
+not(x,A);
+and(Borrow,x,B);
+endmodule
+```
+## FULL SUBTRACTOR
+```python
+module FullSubtractor(A,B,C,Diff,Borrow);
+input A,B,C;
+output Diff,Borrow;
+wire p;
+assign Diff = ((A^B)^C);
+not(p,A);
+assign Borrow = ((p&B)|(p&C)|(B&C));
+endmodule
+```
 
 ## Output:
 
 ## Truthtable
-
+## HALF SUBTRACTOR:
+![OUTPUT](/WhatsApp%20Image%202023-04-20%20at%2009.07.40.jpeg)
+## FULL SUBTRACTOR:
+![OUTPUT](/WhatsApp%20Image%202023-04-20%20at%2009.07.40(2).jpeg)
 
 
 ##  RTL realization
-
+## HALF SUBTRACTOR:
+![OUTPUT](/fs.png)
+## FULL SUBTRACTOR:
+![OUTPUT](/WhatsApp%20Image%202023-04-20%20at%2009.07.41(1).jpeg)
 
 ## Timing diagram 
+## HALF SUBTRACTOR:
+![OUTPUT](/fs-half.png)
+## FULL SUBTRACTOR:
+![OUTPUT](/WhatsApp%20Image%202023-04-20%20at%2009.07.41.jpeg)
 
 ## Result:
 Thus the half subtractor and full subtractor circuits are designed and the truth tables is verified using quartus software.
